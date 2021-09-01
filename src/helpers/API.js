@@ -1,1 +1,1 @@
-export const API_URL = "http://kelompok1-api.purwadhikafs1.com";
+export const API_URL = "https://graphql-pokeapi.vercel.app/api/graphql";
