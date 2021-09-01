@@ -37,3 +37,37 @@
   border-radius: 8px;
   background-color: #ccc;
 }
+
+@media only screen and (min-width: 800px) {
+  .skl-pokemon-card {
+    background-color: #ddd;
+    height: 250px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .skl-pokemon-card {
+    background-color: #ddd;
+    height: 270px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  .skl-pokemon-card {
+    background-color: #ddd;
+    height: 300px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

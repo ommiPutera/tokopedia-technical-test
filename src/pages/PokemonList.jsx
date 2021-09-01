@@ -6,7 +6,6 @@ import { PokemonContext } from "../contexts/PokemonContext";
 import PokemonCard from "../components/card/PokemonsCard";
 import Navigation from "../components/navigation/Navigation";
 import SkeltonCardPokemon from "../components/skeleton/SkeletonCardPokemonList";
-import MyFooter from "../components/footer/MyFooter";
 import "./styles/pokemon-page.css";
 
 const PokemonList = () => {
@@ -29,6 +28,12 @@ const PokemonList = () => {
     }
   }, [pokemonList.data]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   const renderPokemonList = () => {
     return listPokemons.map((val, index) => {
       const ownedTotal = myPokemons.filter((pokemon) => {
@@ -50,24 +55,21 @@ const PokemonList = () => {
   };
 
   const renderSkeltonCard = () => {
-    return listPokemons.slice(0, 9).map((val) => {
+    return listPokemons.slice(0, 15).map((val) => {
       return <SkeltonCardPokemon />;
     });
   };
 
   return (
-    <>
-      <div className="container">
-        <Navigation />
-        <div>
-          <h1>Pokemon List</h1>
-        </div>
-        <div className="wrapper-pokemon-card">
-          {loading ? renderPokemonList() : renderSkeltonCard()}
-        </div>
+    <div className="container">
+      <Navigation />
+      <div>
+        <h1>Pokemon List</h1>
       </div>
-      <MyFooter />
-    </>
+      <div className="wrapper-pokemon-card">
+        {loading ? renderSkeltonCard() : renderPokemonList()}
+      </div>
+    </div>
   );
 };
 
