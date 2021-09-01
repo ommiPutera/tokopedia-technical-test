@@ -3,22 +3,41 @@ import App from "./App";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 
-// Setting up React Router Dom, Store, and Redux
+// import for React Router Dom
 import { BrowserRouter } from "react-router-dom";
-import { applyMiddleware, createStore } from "redux";
-import { Provider } from "react-redux";
-import Thunk from "redux-thunk";
-import Reducers from "./redux/reducers";
 
-const store = createStore(Reducers, {}, applyMiddleware(Thunk));
+// import for apollo client
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  from,
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+import { API_URL } from "./helpers/API";
+
+// setting up apollo client
+const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    graphqlErrors.map(({ message, location, path }) => {
+      return alert(`graphql error: ${message}`);
+    });
+  }
+});
+const link = from([errorLink, new HttpLink({ uri: API_URL })]);
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: link,
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ApolloProvider client={client}>
         <App />
-      </BrowserRouter>
-    </Provider>
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

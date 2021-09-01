@@ -1,0 +1,24 @@
+.wrapper-pokemon-card {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 13px;
+  grid-row-gap: 13px;
+  margin: 20px 0;
+  justify-content: center;
+}
+.wrapper-pokemon-card.my-pokemons {
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 20px;
+}
+
+.wrapper-pokemon-card-detail {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #111;
+}
