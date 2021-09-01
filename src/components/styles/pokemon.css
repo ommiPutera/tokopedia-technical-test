@@ -1,6 +1,6 @@
 /* navigation style */
 .navigation-container {
-  width: 75%;
+  width: 100%;
   height: 50px;
   margin: 30px 0;
   background-color: #fff;
@@ -40,6 +40,11 @@
 .navigation-container .notactive {
   width: 40%;
   color: #aaa;
+}
+.msg-empty-pokemon {
+  margin-top: 100px;
+  font-size: 14px;
+  color: #777;
 }
 
 /* Pokemon list card */
@@ -199,7 +204,7 @@
 .remove-my-pokemon button:hover {
   background-color: rgb(255, 57, 57);
 }
-.my-pokemon-image img{
+.my-pokemon-image img {
   width: 100px;
   height: 100px;
 }
@@ -419,15 +424,15 @@
   font-weight: 600;
 }
 .container-p-about {
-  display: flex ;
+  display: flex;
   width: 90%;
 }
-.p-about{
+.p-about {
   color: #333;
   background: none;
   font-size: 13px;
 }
-.p-about span{
+.p-about span {
   font-weight: 700;
 }
 
@@ -640,16 +645,16 @@
   text-align: center;
   background-color: #fff;
 }
-.container-modal-success p{
- font-size: 14px;
- margin-bottom: 15px;
+.container-modal-success p {
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .container-modal-success div:last-child {
   display: flex;
   justify-content: space-evenly;
 }
-.container-modal-success button{
+.container-modal-success button {
   margin-top: 10px;
   font-size: 12px;
   font-weight: 600;
@@ -658,12 +663,142 @@
   padding: 9px 20px;
   border-radius: 25px;
   cursor: pointer;
- }
- .container-modal-success button:first-child{
-   background-color: #27af82;
-   color: #fff;
- }
- .container-modal-success button.okey{
+}
+.container-modal-success button:first-child {
+  background-color: #27af82;
+  color: #fff;
+}
+.container-modal-success button.okey {
   background-color: #fff177;
   color: #333;
+}
+
+/* Footer section */
+.container-footer {
+  width: 100%;
+  height: 50px;
+  background-color: #777;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* responsive */
+@media only screen and (min-width: 800px) {
+  .navigation-container {
+    width: 70%;
+  }
+  .pokemon-card {
+    height: 230px;
+  }
+  .pokemon-img {
+    width: 90px;
+    height: 90px;
+    transition: ease-in-out 0.2.5s;
+  }
+  .pokemon-card:hover .pokemon-image .pokemon-img {
+    width: 85px;
+    height: 85px;
+    transition: ease-in-out 0.1s;
+  }
+  .pokemon-name {
+    font-size: 15px;
+  }
+  .owned-total {
+    font-size: 13px;
+  }
+  .container-image-pokemon img {
+    width: 140px;
+    margin: 95px 40px -60px 40px;
+  }
+  .bg-caught {
+    width: 100%;
+    height: 100%;
+  }
+  .container-edit-pokemon div:nth-child(2) {
+    width: 50%;
+  }
+  .container-modal-success {
+    width: 47%;
+  }
+  .container-footer {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .navigation-container {
+    width: 50%;
+  }
+  .pokemon-card {
+    height: 270px;
+  }
+  .pokemon-img {
+    width: 110px;
+    height: 110px;
+    transition: ease-in-out 0.2.5s;
+  }
+  .pokemon-card:hover .pokemon-image .pokemon-img {
+    width: 105px;
+    height: 105px;
+    transition: ease-in-out 0.1s;
+  }
+  .owned-total {
+    font-size: 14px;
+  }
+  .container-image-pokemon img {
+    width: 150px;
+    margin: 105px 40px -50px 40px;
+  }
+  .bg-caught {
+    width: 100%;
+    height: 100%;
+  }
+  .container-edit-pokemon div:nth-child(2) {
+    width: 50%;
+  }
+  .container-modal-success {
+    width: 37%;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  .navigation-container {
+    width: 35%;
+  }
+  .pokemon-card {
+    height: 320px;
+  }
+  .pokemon-img {
+    width: 120px;
+    height: 120px;
+    transition: ease-in-out 0.2.5s;
+  }
+  .pokemon-card:hover .pokemon-image .pokemon-img {
+    width: 115px;
+    height: 115px;
+    transition: ease-in-out 0.1s;
+  }
+  .pokemon-name {
+    font-size: 16px;
+  }
+  .owned-total {
+    font-size: 15px;
+  }
+  .container-image-pokemon img {
+    width: 160px;
+    margin: 115px 40px -40px 40px;
+  }
+  .bg-caught {
+    width: 100%;
+    height: 100%;
+  }
+  .container-edit-pokemon div:nth-child(2) {
+    width: 50%;
+  }
+  .container-modal-success {
+    width: 30%;
+  }
 }

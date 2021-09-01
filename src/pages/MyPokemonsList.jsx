@@ -3,6 +3,7 @@ import { PokemonContext } from "../contexts/PokemonContext";
 import Navigation from "../components/navigation/Navigation";
 import MyPokemonCard from "../components/card/MyPokemonCard";
 import ModalRemovePokemon from "../components/modal/ModalRemovePokemon";
+import MyFooter from "../components/footer/MyFooter";
 import "./styles/pokemon-page.css";
 
 const MyPokemonsList = () => {
@@ -12,11 +13,11 @@ const MyPokemonsList = () => {
 
   const removeCardPokemon = (nick) => {
     setOpenModalRemove(!openModalRemove);
-    setNicknameProp(nick)
+    setNicknameProp(nick);
   };
   const closeModal = () => {
-    setOpenModalRemove(!openModalRemove)
-  }
+    setOpenModalRemove(!openModalRemove);
+  };
 
   const renderMyPokemons = () => {
     return myPokemons.map((val, index) => {
@@ -35,16 +36,27 @@ const MyPokemonsList = () => {
   };
 
   return (
-    <div>
-      {openModalRemove ? <ModalRemovePokemon nickname={nicknameProp} onClickClose={() => closeModal()} /> : null}
-      <Navigation />
-      <div>
-        <h1>My Pokemons List</h1>
+    <>
+      <div className="container">
+        {openModalRemove ? (
+          <ModalRemovePokemon
+            nickname={nicknameProp}
+            onClickClose={() => closeModal()}
+          />
+        ) : null}
+        <Navigation />
+        <div>
+          <h1>My Pokemons List</h1>
+        </div>
+        <div className="wrapper-pokemon-card my-pokemons">
+          {renderMyPokemons()}
+          <div className="msg-empty-pokemon">
+            {myPokemons.length ? <div></div> : <p>No pokemon caught yet ...</p>}
+          </div>
+        </div>
       </div>
-      <div className="wrapper-pokemon-card my-pokemons">
-        {renderMyPokemons()}
-      </div>
-    </div>
+      <MyFooter />
+    </>
   );
 };
 

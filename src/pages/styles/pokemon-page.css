@@ -22,3 +22,29 @@
   text-decoration: none;
   color: #111;
 }
+
+/* responsive */
+@media only screen and (min-width: 800px) {
+  .wrapper-pokemon-card {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .wrapper-pokemon-card.my-pokemons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .wrapper-pokemon-card {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .wrapper-pokemon-card.my-pokemons {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  .wrapper-pokemon-card {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .wrapper-pokemon-card.my-pokemons {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}

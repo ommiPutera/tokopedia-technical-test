@@ -19,4 +19,4 @@ const PokemonCard = (props) => {
   );
 };
 
-export default PokemonCard;
+export default React.memo(PokemonCard);

@@ -4,20 +4,23 @@ import PokemonContextProvider from "./contexts/PokemonContext";
 import PokemonList from "./pages/PokemonList";
 import PokemonDetail from "./pages/PokemonDetail";
 import MyPokemonsList from "./pages/MyPokemonsList";
+import ScrollToTop from "./components/ScrollToTop.js";
 import "./App.css";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <PokemonContextProvider>
+        <ScrollToTop />
         <Switch>
           <Route path="/" exact component={PokemonList} />
           <Route path="/pokemon/:pokemonName" exact component={PokemonDetail} />
           <Route path="/my-pokemons" exact component={MyPokemonsList} />
+          <Route path="*" component={PokemonList} />
         </Switch>
       </PokemonContextProvider>
     </div>
   );
 }
 
-export default App;
+export default React.memo(App);

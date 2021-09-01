@@ -5,6 +5,8 @@ import { LOAD_POKEMONS } from "../graphQL/Queries";
 import { PokemonContext } from "../contexts/PokemonContext";
 import PokemonCard from "../components/card/PokemonsCard";
 import Navigation from "../components/navigation/Navigation";
+import SkeltonCardPokemon from "../components/skeleton/SkeletonCardPokemonList";
+import MyFooter from "../components/footer/MyFooter";
 import "./styles/pokemon-page.css";
 
 const PokemonList = () => {
@@ -21,9 +23,9 @@ const PokemonList = () => {
   useEffect(() => {
     if (pokemonList.data) {
       setListPokemons(pokemonList.data.pokemons.results);
-      setLoading(true)
+      setLoading(true);
     } else {
-      setLoading(false)
+      setLoading(false);
     }
   }, [pokemonList.data]);
 
@@ -31,31 +33,42 @@ const PokemonList = () => {
     return listPokemons.map((val, index) => {
       const ownedTotal = myPokemons.filter((pokemon) => {
         return pokemon.name === val.name;
-      })
-
+      });
       return (
         <div key={index}>
           <Link to={`/pokemon/${val.name}`} className="link">
-            <PokemonCard key={val.name} image={val.dreamworld} name={val.name} owned={ownedTotal.length} />
+            <PokemonCard
+              key={val.name}
+              image={val.dreamworld}
+              name={val.name}
+              owned={ownedTotal.length}
+            />
           </Link>
         </div>
       );
     });
   };
 
+  const renderSkeltonCard = () => {
+    return listPokemons.slice(0, 9).map((val) => {
+      return <SkeltonCardPokemon />;
+    });
+  };
+
   return (
-    <div>
-      <Navigation />
-      <div>
-        <h1>Pokemon List</h1>
+    <>
+      <div className="container">
+        <Navigation />
+        <div>
+          <h1>Pokemon List</h1>
+        </div>
+        <div className="wrapper-pokemon-card">
+          {loading ? renderPokemonList() : renderSkeltonCard()}
+        </div>
       </div>
-      {loading ? (
-        <div className="wrapper-pokemon-card">{renderPokemonList()}</div>
-      ) : (
-        <div>Loading ...</div>
-      )}
-    </div>
+      <MyFooter />
+    </>
   );
 };
 
-export default PokemonList;
+export default React.memo(PokemonList);
