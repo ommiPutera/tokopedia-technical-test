@@ -440,7 +440,7 @@
 /* Loading Catch section */
 .container-loading-catch {
   position: fixed;
-  margin: -10% -5% -5% -5%;
+  margin: -23% -5% -5% -5%;
   width: 100%;
   height: 110vh;
   z-index: 9999;
@@ -480,7 +480,7 @@
 /* modal pokemon caught */
 .container-modal-catch {
   position: fixed;
-  margin: -10% -5% -5% -5%;
+  margin: -25% -5% -5% -5%;
   width: 100%;
   height: 110vh;
   z-index: 9999;
@@ -580,7 +580,7 @@
 /* pokemon-broke */
 .container-modal-catch-broke {
   position: fixed;
-  margin: -10% -5% -5% -5%;
+  margin: -23% -5% -5% -5%;
   width: 100%;
   height: 110vh;
   z-index: 9999;
@@ -625,7 +625,7 @@
 }
 .container-back-success {
   position: fixed;
-  margin: -10% -5% -5% -5%;
+  margin: -23% -5% -5% -5%;
   width: 100%;
   height: 124vh;
   z-index: 99999;
@@ -699,6 +699,18 @@
   .navigation-container {
     width: 70%;
   }
+  .container-loading-catch {
+    margin: -15% -5% -5% -5%;
+  }
+  .container-modal-catch-broke {
+    margin: -15% -5% -5% -5%;
+  }
+  .container-back-success {
+    margin: -15% -5% -5% -5%;
+  }
+  .container-modal-catch {
+    margin: -15% -5% -5% -5%;
+  }
   .pokemon-card {
     height: 230px;
   }
@@ -742,6 +754,22 @@
   }
   .pokemon-card {
     height: 270px;
+  }
+  .container-loading-catch {
+    margin: -15% -5% -5% -5%;
+    height: 130vh;
+  }
+  .container-modal-catch-broke {
+    margin: -15% -5% -5% -5%;
+    height: 130vh;
+  }
+  .container-back-success {
+    margin: -15% -5% -5% -5%;
+    height: 130vh;
+  }
+  .container-modal-catch {
+    margin: -15% -5% -5% -5%;
+    height: 130vh;
   }
   .pokemon-img {
     width: 110px;
