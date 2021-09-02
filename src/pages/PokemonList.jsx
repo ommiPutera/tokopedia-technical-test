@@ -5,7 +5,8 @@ import { LOAD_POKEMONS } from "../graphQL/Queries";
 import { PokemonContext } from "../contexts/PokemonContext";
 import PokemonCard from "../components/card/PokemonsCard";
 import Navigation from "../components/navigation/Navigation";
-import SkeltonCardPokemon from "../components/skeleton/SkeletonCardPokemonList";
+import SkeltonCardPokemons from "../components/skeleton/SkeletonCardPokemonList";
+import MyFooter from "../components/footer/MyFooter";
 import "./styles/pokemon-page.css";
 
 const PokemonList = () => {
@@ -16,23 +17,16 @@ const PokemonList = () => {
     },
   });
   const [listPokemons, setListPokemons] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [arrForSkelton] = useState(Array(15).fill(null));
+  const [loading, setLoading] = useState(true);
   const { myPokemons } = useContext(PokemonContext);
 
   useEffect(() => {
     if (pokemonList.data) {
       setListPokemons(pokemonList.data.pokemons.results);
-      setLoading(true);
-    } else {
       setLoading(false);
     }
   }, [pokemonList.data]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
 
   const renderPokemonList = () => {
     return listPokemons.map((val, index) => {
@@ -54,22 +48,29 @@ const PokemonList = () => {
     });
   };
 
-  const renderSkeltonCard = () => {
-    return listPokemons.slice(0, 15).map((val) => {
-      return <SkeltonCardPokemon />;
+  const renderSkelntonCard = () => {
+    return arrForSkelton.map((val, index) => {
+      return (
+        <div key={index}>
+          <SkeltonCardPokemons />
+        </div>
+      );
     });
   };
 
   return (
-    <div className="container">
-      <Navigation />
-      <div>
-        <h1>Pokemon List</h1>
+    <>
+      <div className="container">
+        <Navigation />
+        <div>
+          <h1>Pokemon List</h1>
+        </div>
+        <div className="wrapper-pokemon-card">
+          {loading ? renderSkelntonCard() : renderPokemonList()}
+        </div>
       </div>
-      <div className="wrapper-pokemon-card">
-        {loading ? renderSkeltonCard() : renderPokemonList()}
-      </div>
-    </div>
+      <MyFooter />
+    </>
   );
 };
 
