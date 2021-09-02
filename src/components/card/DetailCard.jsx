@@ -6,8 +6,6 @@ import { DataAboutPokemon } from "../localData/DataAboutPokemon";
 import ModalCatchPokemon from "../modal/ModalCatchPokemon";
 import "../styles/pokemon.css";
 
-const useMountEffect = (fun) => useEffect(fun);
-
 const DetailCard = (props) => {
   const [pokemonDetail, setPokemonDetail] = useState([]);
   const [pokemonPic, setPokemonPic] = useState([]);
@@ -16,11 +14,9 @@ const DetailCard = (props) => {
   const [moves, setMoves] = useState([]);
   const [moveActive, setMoveActive] = useState(false);
   const [caught, setCaught] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const myRef = useRef(null);
   const executeScroll = () => myRef.current.scrollIntoView();
-  useMountEffect(executeScroll);
 
   const detailPokemon = useQuery(LOAD_DETAIL_POKEMON, {
     variables: { name: props.pokemonName },
@@ -54,10 +50,7 @@ const DetailCard = (props) => {
       setAbility(Ability);
       setTypes(Types);
       setMoves(Moves);
-      setLoading(true);
-    } else {
-      setLoading(false);
-    }
+    } 
   }, [detailPokemon.data, pokemonList.data]);
 
   const moreClick = () => {

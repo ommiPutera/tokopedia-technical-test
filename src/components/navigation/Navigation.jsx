@@ -9,23 +9,19 @@ const Navigation = () => {
   useEffect(() => {
     if (location.pathname === "/my-pokemons") {
       setActive(true);
+    } else {
+      setActive(false);
     }
-  }, []);
+  }, [location.pathname]);
 
   return (
     <div className="navigation-container">
-      <Link
-        to="/"
-        className={`list-pokemons ${active ? "notactive" : "activeNav"} link`}
-      >
+      <Link to="/" className={`list-pokemons ${active ? "notactive" : "activeNav"} link`}>
         <div>
           <p>List Pokemons</p>
         </div>
       </Link>
-      <Link
-        to="/my-pokemons"
-        className={`my-pokemons ${active ? "activeNav" : "notactive"} link`}
-      >
+      <Link to="/my-pokemons" className={`my-pokemons ${active ? "activeNav" : "notactive"} link`}>
         <div>
           <p>My pokemons</p>
         </div>

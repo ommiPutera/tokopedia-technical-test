@@ -20,4 +20,4 @@ const PokemonContextProvider = (props) => {
   );
 }
  
-export default PokemonContextProvider;
+export default React.memo(PokemonContextProvider);
